@@ -19,7 +19,7 @@ module "iam" {
   source = "../../modules/iam"
 
   name               = "data-lake-tf-test-iam-role"
-  s3_bucket          = "data_lake_tf_test_s3_bucket"
+  s3_bucket          = "datalakes-test-dev"
   glue_database_name = "data_lake_tf_test"
   external_ids       = ["test_external_id_1", "test_external_id_2"]
   tags               = "${local.tags}"
@@ -28,7 +28,7 @@ module "iam" {
 module "emr" {
   source = "../../modules/emr"
 
-  s3_bucket = "data_lake_tf_test_s3_bucket"
+  s3_bucket = "datalakes-test-dev"
   subnet_id = "subnet-00f137e4f3a6f8356"
   tags      = "${local.tags}"
 }
